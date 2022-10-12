@@ -22,8 +22,13 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
-Route::middleware('auth:api')->post('/user', function (Request $request) {
-    return $request->user();
+//Route::middleware('auth:api')->post('/user', function (Request $request) {
+//    return $request->user();
+//});
+
+
+Route::group(['middleware' => ['auth:sanctum']], function () {
+    Route::post('/dashboard', [\App\Http\Controllers\DashboardController::class, 'dashboard']);
 });
 
 Route::post('/test', [\App\Http\Controllers\TestController::class, 'receive_msg']);
@@ -34,7 +39,6 @@ Route::post('/customer/update/confirm', [\App\Http\Controllers\CustomerControlle
 Route::post('/customer/delete', [\App\Http\Controllers\CustomerController::class, 'delete']);
 Route::post('/login', [\App\Http\Controllers\LoginController::class, 'login']);
 Route::post('/logout', [\App\Http\Controllers\LoginController::class, 'logout']);
-Route::post('/dashboard', [\App\Http\Controllers\DashboardController::class, 'dashboard']);
 Route::post('/admin/create-blog-post', [\App\Http\Controllers\AdminBlogController::class, 'index']);
 Route::post('/admin/view-blog-post', [\App\Http\Controllers\AdminBlogController::class, 'view_post']);
 Route::post('/admin/delete-blog-post', [\App\Http\Controllers\AdminBlogController::class, 'delete_post']);
