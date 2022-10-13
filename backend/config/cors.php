@@ -32,7 +32,7 @@ return [
     'supports_credentials' => true,
 
     'allow_origins' => [
-        'https://jtravel.zahidcs.cf',
+        'https://jtravel.zahidcs.cf','http://localhost:8000'
         ],
 
 ];
