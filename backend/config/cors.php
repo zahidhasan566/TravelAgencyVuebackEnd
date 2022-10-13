@@ -31,4 +31,8 @@ return [
 
     'supports_credentials' => true,
 
+    'allow_origins' => [
+        'https://jtravel.zahidcs.cf',
+        ],
+
 ];
