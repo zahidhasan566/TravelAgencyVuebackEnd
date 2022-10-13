@@ -29,10 +29,9 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/dashboard', [\App\Http\Controllers\DashboardController::class, 'dashboard']);
-    Route::post('/admin/create-blog-post', [\App\Http\Controllers\AdminBlogController::class, 'index']);
     Route::post('/admin/view-blog-post', [\App\Http\Controllers\AdminBlogController::class, 'view_post']);
 });
-
+Route::post('/admin/create-blog-post', [\App\Http\Controllers\AdminBlogController::class, 'index']);
 Route::post('/test', [\App\Http\Controllers\TestController::class, 'receive_msg']);
 Route::get('/test1', [\App\Http\Controllers\CustomerController::class, 'index']);
 Route::post('/customer', [\App\Http\Controllers\CustomerController::class, 'insert']);
