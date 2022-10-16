@@ -13,13 +13,12 @@ use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Notification;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
-use File;
 use PhpParser\Node\Stmt\Echo_;
 
 class AdminBlogController extends Controller
 {
     public function index(Request $request){
-        return $request;
+//        return $request;
         $request->validate([
             'postTitle' => 'required',
             'postContent' => 'required',
