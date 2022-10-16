@@ -19,6 +19,7 @@ use PhpParser\Node\Stmt\Echo_;
 class AdminBlogController extends Controller
 {
     public function index(Request $request){
+        return $request;
         $request->validate([
             'postTitle' => 'required',
             'postContent' => 'required',

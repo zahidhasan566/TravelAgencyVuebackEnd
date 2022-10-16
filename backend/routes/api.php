@@ -31,6 +31,9 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/dashboard', [\App\Http\Controllers\DashboardController::class, 'dashboard']);
     Route::post('/admin/view-blog-post', [\App\Http\Controllers\AdminBlogController::class, 'view_post']);
 });
+
+Route::group(['middleware' => ['cors']], function () {
+
 Route::post('/admin/create-blog-post', [\App\Http\Controllers\AdminBlogController::class, 'index']);
 Route::post('/test', [\App\Http\Controllers\TestController::class, 'receive_msg']);
 Route::get('/test1', [\App\Http\Controllers\CustomerController::class, 'index']);
@@ -52,3 +55,5 @@ Route::post('/admin/live-chat', [\App\Http\Controllers\AdminChatRoomController::
 Route::post('/admin/previous-msg/{id}', [\App\Http\Controllers\AdminChatRoomController::class, 'previous_msg']);
 Route::post('/admin/receive-chat', [\App\Http\Controllers\AdminChatRoomController::class, 'receive_msg']);
 Route::post('/customer/receive-chat', [\App\Http\Controllers\ChatRoomController::class, 'receive_msg']);
+
+});
